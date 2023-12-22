@@ -1,4 +1,4 @@
-Feature: Demoblaze website automation
+Feature: Demoblaze website automation (E2E Exercise Option 1)
 
   Scenario: Add two products to the shopping cart and complete the purchase
     Given a user is logged in on "https://www.demoblaze.com/index.html"
