@@ -1,4 +1,5 @@
 const { Given, When, Then } = require('cypress-cucumber-preprocessor/steps');
+import {faker} from '@faker-js/faker';
 
 Given('a user navigates to {string}', (url) => {
   cy.visit(url);
@@ -34,17 +35,17 @@ const addProductAndGoToCart = () => {
 }
 
 And('the user goes back to the home page', () => {
-  cy.get('#navbarExample > ul > li:nth-child(1) > a');
+  cy.get('#navbarExample > ul > li:nth-child(1) > a').click();
 });
 
 When('the user completes the purchase', () => {
   cy.get('.btn.btn-success[data-target="#orderModal"]').click();
-  cy.get('#name').focus().clear().type("Test User", { delay: 100 });
-  cy.get('#country').focus().clear().type("Peru", { delay: 100 });
-  cy.get('#city').focus().clear().type("Peru", { delay: 100 });
-  cy.get('#card').focus().clear().type( Math.floor(Math.random() * 10000), { delay: 100 });
-  cy.get('#month').focus().clear().type("12", { delay: 100 });
-  cy.get('#year').focus().clear().type("24", { delay: 100 });
+  cy.get('#name').focus().clear().type(faker.person.fullName(), { delay: 100 });
+  cy.get('#country').focus().clear().type(faker.location.country(), { delay: 100 });
+  cy.get('#city').focus().clear().type(faker.location.city(), { delay: 100 });
+  cy.get('#card').focus().clear().type( faker.finance.creditCardNumber(), { delay: 100 });
+  cy.get('#month').focus().clear().type(faker.date.month(), { delay: 100 });
+  cy.get('#year').focus().clear().type(faker.date.future().getFullYear(), { delay: 100 });
   cy.get('button[onclick="purchaseOrder()"]').click();
 });
 
