@@ -16,7 +16,7 @@ These instructions will get you a copy of the project up and running on your loc
 First, clone the repository to your local machine.
 
 ```bash
-git clone [<repository-url>](https://github.com/JdGXII/devsu_coding_exercise/tree/main)
+git clone https://github.com/JdGXII/devsu_coding_exercise
 ```
 
 Navigate to the project directory.
